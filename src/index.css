@@ -1,45 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Vazirmatn:wght@100;400;700&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ========================================
-   FONT DECLARATIONS
-   ======================================== */
+/* گوگل فونٹس سے فارسی (Vazirmatn)، اردو (Nastaliq) اور عربی (Amiri) کا درست امپورٹ */
 
-/* Urdu - Noto Nastaliq Urdu (Google Fonts) */
-@font-face {
-  font-family: 'Nastaleeq';
-  src: url('https://fonts.gstatic.com/s/notonastaliqurdu/v20/LhWNMUPbN-oZdNFcBy1-DJYsEoTq5pudQ9melLF26SKfL0fQzz0Z.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+:root {
+  --font-urdu: 'Noto Nastaliq Urdu', serif;
+  --font-persian: 'Vazirmatn', sans-serif;
+  --font-arabic: 'Amiri', serif;
 }
 
-/* Arabic - Amiri for headings */
-@font-face {
-  font-family: 'Amiri';
-  src: url('https://fonts.gstatic.com/s/amiri/v27/J7aRnpd8CGxBHqUpvrIw74NL.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+/* فارسی کے لیے مخصوص کلاس */
+.font-persian {
+  font-family: var(--font-persian);
+  direction: rtl;
 }
 
-/* Arabic - Scheherazade for body */
-@font-face {
-  font-family: 'Scheherazade';
-  src: url('https://fonts.gstatic.com/s/scheherazadenew/v15/4UaZrFhTvxVnHDvUkUiHg8jprP4DM79HGteYmQuw.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+.font-urdu {
+  font-family: var(--font-urdu);
+  line-height: 2.2;
 }
 
-/* Persian - Vazirmatn */
-@font-face {
-  font-family: 'Vazirmatn';
-  src: url('https://fonts.gstatic.com/s/vazirmatn/v13/Dxxo8j6PP2D_kU2muijne0u3.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+.font-arabic {
+  font-family: var(--font-arabic);
 }
 
 /* ========================================
