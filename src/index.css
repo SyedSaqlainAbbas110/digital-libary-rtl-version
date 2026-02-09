@@ -1,0 +1,429 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   FONT DECLARATIONS
+   ======================================== */
+
+/* Urdu - Noto Nastaliq Urdu (Google Fonts) */
+@font-face {
+  font-family: 'Nastaleeq';
+  src: url('https://fonts.gstatic.com/s/notonastaliqurdu/v20/LhWNMUPbN-oZdNFcBy1-DJYsEoTq5pudQ9melLF26SKfL0fQzz0Z.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Arabic - Amiri for headings */
+@font-face {
+  font-family: 'Amiri';
+  src: url('https://fonts.gstatic.com/s/amiri/v27/J7aRnpd8CGxBHqUpvrIw74NL.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Arabic - Scheherazade for body */
+@font-face {
+  font-family: 'Scheherazade';
+  src: url('https://fonts.gstatic.com/s/scheherazadenew/v15/4UaZrFhTvxVnHDvUkUiHg8jprP4DM79HGteYmQuw.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Persian - Vazirmatn */
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('https://fonts.gstatic.com/s/vazirmatn/v13/Dxxo8j6PP2D_kU2muijne0u3.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ========================================
+   CSS VARIABLES & THEME
+   ======================================== */
+
+:root {
+  /* Dark theme colors */
+  --color-bg-primary: #0d1117;
+  --color-bg-secondary: #161b22;
+  --color-bg-tertiary: #21262d;
+
+  /* Accent colors */
+  --color-gold-light: #f5d485;
+  --color-gold: #d4a855;
+  --color-gold-dark: #a3832a;
+  --color-teal-light: #56d4c8;
+  --color-teal: #30a89b;
+  --color-teal-dark: #1d7a70;
+
+  /* Text colors */
+  --color-text-primary: #f0f6fc;
+  --color-text-secondary: #8b949e;
+  --color-text-muted: #6e7681;
+
+  /* Manuscript accent */
+  --color-manuscript: #f5e6d3;
+  --color-manuscript-dark: #e8d5bc;
+
+  /* Glass effect */
+  --glass-bg: rgba(22, 27, 34, 0.7);
+  --glass-border: rgba(139, 148, 158, 0.2);
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nastaleeq', 'Noto Nastaliq Urdu', system-ui, sans-serif;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 2;
+  direction: rtl;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ========================================
+   TYPOGRAPHY UTILITIES
+   ======================================== */
+
+.font-urdu {
+  font-family: 'Nastaleeq', 'Noto Nastaliq Urdu', system-ui, sans-serif;
+  line-height: 2.2;
+}
+
+.font-arabic {
+  font-family: 'Scheherazade', 'Amiri', 'Traditional Arabic', serif;
+  line-height: 2;
+}
+
+.font-arabic-heading {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  line-height: 1.6;
+}
+
+.font-persian {
+  font-family: 'Vazirmatn', 'IranSans', system-ui, sans-serif;
+  line-height: 2;
+}
+
+/* ========================================
+   GLASSMORPHISM COMPONENTS
+   ======================================== */
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.glass-card {
+  background: linear-gradient(135deg,
+      rgba(22, 27, 34, 0.8) 0%,
+      rgba(33, 38, 45, 0.6) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(139, 148, 158, 0.15);
+  border-radius: 20px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-card-gold {
+  background: linear-gradient(135deg,
+      rgba(212, 168, 85, 0.15) 0%,
+      rgba(22, 27, 34, 0.8) 100%);
+  border: 1px solid rgba(212, 168, 85, 0.3);
+}
+
+.glass-card-teal {
+  background: linear-gradient(135deg,
+      rgba(48, 168, 155, 0.15) 0%,
+      rgba(22, 27, 34, 0.8) 100%);
+  border: 1px solid rgba(48, 168, 155, 0.3);
+}
+
+/* ========================================
+   ISLAMIC GEOMETRIC PATTERNS
+   ======================================== */
+
+.pattern-geometric {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a855' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.pattern-arabesque {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%2330a89b' fill-opacity='0.06'%3E%3Cpath d='M0 0h80v80H0V0zm20 20v40h40V20H20zm20 35a15 15 0 1 1 0-30 15 15 0 0 1 0 30z' fill-rule='evenodd'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ========================================
+   CALLIGRAPHY BOX (Arabic Verses)
+   ======================================== */
+
+.calligraphy-box {
+  background: linear-gradient(135deg,
+      rgba(212, 168, 85, 0.1) 0%,
+      rgba(48, 168, 155, 0.05) 100%);
+  border: 2px solid transparent;
+  border-image: linear-gradient(135deg,
+      var(--color-gold) 0%,
+      var(--color-teal) 100%) 1;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.calligraphy-box::before,
+.calligraphy-box::after {
+  content: '❋';
+  position: absolute;
+  color: var(--color-gold);
+  font-size: 1.2rem;
+  opacity: 0.6;
+}
+
+.calligraphy-box::before {
+  top: -0.6rem;
+  right: 2rem;
+}
+
+.calligraphy-box::after {
+  bottom: -0.6rem;
+  left: 2rem;
+}
+
+.calligraphy-box .verse-text {
+  font-family: 'Amiri', 'Scheherazade', serif;
+  font-size: 1.75rem;
+  color: var(--color-manuscript);
+  line-height: 2.2;
+  margin-bottom: 0.75rem;
+}
+
+.calligraphy-box .verse-reference {
+  font-family: 'Nastaleeq', system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: var(--color-gold);
+  opacity: 0.8;
+}
+
+/* ========================================
+   PERSIAN POETRY (Beyt/Couplet)
+   ======================================== */
+
+.persian-beyt {
+  text-align: center;
+  padding: 1.5rem 0;
+  margin: 1.5rem 0;
+  font-family: 'Vazirmatn', sans-serif;
+  position: relative;
+}
+
+.persian-beyt .misra {
+  font-size: 1.4rem;
+  color: var(--color-text-primary);
+  line-height: 2.4;
+  display: block;
+}
+
+.persian-beyt::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 25%;
+  left: 25%;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      var(--color-teal) 50%,
+      transparent 100%);
+}
+
+.persian-beyt::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 25%;
+  left: 25%;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      var(--color-teal) 50%,
+      transparent 100%);
+}
+
+/* ========================================
+   SKELETON LOADERS
+   ======================================== */
+
+.skeleton {
+  background: linear-gradient(90deg,
+      var(--color-bg-secondary) 25%,
+      var(--color-bg-tertiary) 50%,
+      var(--color-bg-secondary) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+.skeleton-gold {
+  background: linear-gradient(90deg,
+      var(--color-bg-secondary) 25%,
+      rgba(212, 168, 85, 0.3) 50%,
+      var(--color-bg-secondary) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-teal {
+  background: linear-gradient(90deg,
+      var(--color-bg-secondary) 25%,
+      rgba(48, 168, 155, 0.3) 50%,
+      var(--color-bg-secondary) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+      var(--color-gold) 0%,
+      var(--color-teal) 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* ========================================
+   SELECTION STYLING
+   ======================================== */
+
+::selection {
+  background: rgba(212, 168, 85, 0.3);
+  color: var(--color-manuscript);
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+.text-teal {
+  color: var(--color-teal);
+}
+
+.text-manuscript {
+  color: var(--color-manuscript);
+}
+
+.bg-gradient-gold-teal {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-teal) 100%);
+}
+
+.border-gold {
+  border-color: var(--color-gold);
+}
+
+.border-teal {
+  border-color: var(--color-teal);
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 3px;
+  background: var(--color-bg-tertiary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-teal) 100%);
+  transition: width 0.3s ease;
+}
+
+/* Fade transitions */
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RTL slide transition */
+.slide-rtl-enter {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.slide-rtl-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-rtl-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-rtl-exit-active {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
